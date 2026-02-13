@@ -1,6 +1,6 @@
 # 🤖 Python Remote Job Scraper
 
-This is a web application built with Python and Streamlit that scrapes the latest remote Python jobs from [remoteok.com](https://remoteok.com/remote-python-jobs ).
+This is a web application built with Python and Streamlit that scrapes the latest remote Python jobs from [remoteok.com](https://job-scraper-ebq7j8mhsu3rbzbutct4kw.streamlit.app/).
 
 The app allows users to get a fresh list of job postings with a single click and download the results as a CSV file.
 
