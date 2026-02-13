@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
-from scraper_logic import run_scraper # נייבא את הפונקציה מהקובץ השני
+import os
+# התיקון כאן: שימוש בשם הפונקציה הנכון
+from scraper_logic import run_job_scraper 
 
 # הגדרת כותרת ומידע בסיסי על האפליקציה
 st.set_page_config(page_title="Python Job Scraper", page_icon="🤖")
@@ -15,8 +17,7 @@ if st.button("Scrape Latest Python Jobs"):
     with st.spinner("Scraping in progress... This might take 20-30 seconds."):
         try:
             # קריאה לפונקציה שמפעילה את הסקרייפר
-            # הפונקציה תחזיר את שם הקובץ שנוצר
-            csv_file_path = run_scraper()
+            csv_file_path = run_job_scraper()
             
             # קריאת המידע מקובץ ה-CSV שנוצר
             df = pd.read_csv(csv_file_path)
@@ -36,5 +37,4 @@ if st.button("Scrape Latest Python Jobs"):
                 )
 
         except Exception as e:
-            st.error(f"An error occurred: {e}")
-
+            st.error(f"An error occurred during scraping: {e}")
