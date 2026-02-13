@@ -14,8 +14,12 @@ def run_job_scraper():
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--window-size=1920,1080")
     
-    # webdriver-manager יזהה את הדפדפן המותקן (chromium) ויוריד את הדרייבר הנכון
-    service = Service(ChromeDriverManager().install())
+    # --- התיקון המרכזי ---
+    # אנחנו יודעים שהדפדפן הוא גרסה 144.
+    # נכריח את webdriver-manager להוריד את הדרייבר התואם.
+    # נשתמש בגרסה ספציפית כדי למנוע בלבול.
+    driver_version = "144.0.7559.109" # או גרסה קרובה מאוד
+    service = Service(ChromeDriverManager(driver_version=driver_version).install())
     
     URL = "https://remoteok.com/remote-python-jobs"
     
